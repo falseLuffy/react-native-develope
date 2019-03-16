@@ -8,8 +8,17 @@
  */
 import React, {Component} from 'react';
 import {Platform,} from 'react-native';
-import { createStackNavigator,createAppContainer} from "react-navigation";
 
+import { createStore, applyMiddleware, compose } from 'redux'
+import reducers from './src/store/reducer'
+import { Provider } from 'react-redux'
+
+const store = createStore(reducers, compose(
+  // applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+))
+
+import { createStackNavigator,createAppContainercreateAppContainer} from "react-navigation";
 import  AppContainer from './src/router/index'
 
 const instructions = Platform.select({
@@ -20,8 +29,10 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+ class App extends Component<Props> {
    render() {
-      return <AppContainer/>;
+      return <Provider store={store}><AppContainer/></Provider>;
    }
 }
+
+export default App

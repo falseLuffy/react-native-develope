@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux';
 import {withNavigation} from 'react-navigation';
 
 import FlexBox from '../../components/flexBox'
@@ -9,6 +10,33 @@ import FlexBox from '../../components/flexBox'
         <FlexBox></FlexBox>
       )
    }
+    componentDidMount(){
+       console.log(this.props)
+    }
 }
 
-export default withNavigation(Index)
+const mapStateToProps = (state) => {
+   return {
+      /*cart: state.cart,
+      demo:state.a*/
+   }
+};
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+      /*plus: () => {
+         dispatch({
+            type: '请求增援'
+         });
+      } ,
+      plus2: () => {
+         dispatch({
+            type: '修改',
+            data:{a:100,b:200}
+         });
+      }*/
+   };
+};
+
+
+export default withNavigation(connect(mapStateToProps,mapDispatchToProps)(Index))
