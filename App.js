@@ -6,11 +6,10 @@
  * @flow
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
-
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, Image, View, ScrollView, SafeAreaView, Dimensions} from 'react-native';
+import {Platform,} from 'react-native';
 
-import FlexBox from './src/components/flexBox'
+import  AppContainer from './src/router/index'
 
 const instructions = Platform.select({
    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -22,36 +21,6 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
    render() {
-      return (
-        <SafeAreaView style={styles.container}>
-           <View style={styles.container} key={1}>
-              <FlexBox></FlexBox>
-           </View>
-        </SafeAreaView>
-      );
+      return <AppContainer/>;
    }
 }
-
-let MainWidth = Dimensions.get('window').width;
-
-const styles = StyleSheet.create({
-   container: {
-      flex: 1,
-      width: MainWidth,
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
-   },
-   welcome: {
-      fontSize: 11,
-      margin: 10,
-   },
-
-   instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
-   },
-   scroll: {
-      width: "100%"
-   }
-});
