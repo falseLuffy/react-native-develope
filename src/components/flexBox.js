@@ -1,12 +1,8 @@
 import React, {Component} from 'react'
 import {Dimensions, StyleSheet, Text, View, Button, Image, ScrollView, SafeAreaView} from 'react-native'
-import {createStackNavigator, createAppContainer} from 'react-navigation';
+import {createStackNavigator, createAppContainer,withNavigation} from 'react-navigation';
 
-export default class  extends Component {
-   constructor(props) {
-      super(props)
-   }
-
+class FlexBox extends Component{
    render() {
       return (
         <View style={{
@@ -32,6 +28,7 @@ export default class  extends Component {
    }
 }
 
+export default withNavigation(FlexBox)
 
 let MainWidth = Dimensions.get('window').width;
 

@@ -8,6 +8,7 @@
  */
 import React, {Component} from 'react';
 import {Platform,} from 'react-native';
+import { createStackNavigator,createAppContainer} from "react-navigation";
 
 import  AppContainer from './src/router/index'
 

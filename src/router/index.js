@@ -1,35 +1,17 @@
-import React ,{Component}from "react";
 import { createStackNavigator,createAppContainer} from "react-navigation";
 
-import {View, Text} from 'react-native'
+import Index from '../pages/index/index'
+import Details from '../pages/detail/details'
 
-import FlexBox from '../components/flexBox'
+const router = {
+   Home: {screen:Index},
+   Details:{screen:Details}
+};
 
+const config = {
+   initialRouteName: "Home"
+};
 
-class HomeScreen extends Component{
-   render(){
-      return (
-        <FlexBox></FlexBox>
-      )
-   }
-}
-class DetailsScreen extends Component {
-   render() {
-      return (
-        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-           <Text>DetailsScreen</Text>
-        </View>
-      );
-   }
-}
-
-const AppNavigator = createStackNavigator({
-   Home: HomeScreen,
-   Details:DetailsScreen
-},
-  {
-     initialRouteName: "Home"
-  }
-);
+const AppNavigator = createStackNavigator(router,config);
 
 export default createAppContainer(AppNavigator)
