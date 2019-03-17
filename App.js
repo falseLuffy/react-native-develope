@@ -12,9 +12,10 @@ import {Platform,} from 'react-native';
 import { createStore, applyMiddleware, compose } from 'redux'
 import reducers from './src/store/reducer'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 
 const store = createStore(reducers, compose(
-  // applyMiddleware(thunk),
+  applyMiddleware(thunk),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ))
 

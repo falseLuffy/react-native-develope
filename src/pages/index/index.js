@@ -5,6 +5,14 @@ import {withNavigation} from 'react-navigation';
 import FlexBox from '../../components/flexBox'
 
  class Index extends Component {
+    static navigationOptions = {
+       title: 'Home',
+       headerStyle:{
+          backgroundColor:'#899898'
+       },
+       headerTintStyle:{},
+       headerTitleStyle:{}
+    };
    render() {
       return (
         <FlexBox></FlexBox>
